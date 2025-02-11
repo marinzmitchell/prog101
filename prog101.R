@@ -82,6 +82,7 @@ coldest_site <- kefj_site[coldest_idx]
 coldday_start <- as.POSIXct("2013-01-27 00:00", tz = "Etc/GMT+8")
 coldday_end <- as.POSIXct("2013-01-27 23:59", tz = "Etc/GMT+8")
 coldday_idx <- which(kefj_site == coldest_site &
+                      kefj_datetime >= coldday_start &
                       kefj_datetime <= coldday_end)
 coldday_datetime <- kefj_datetime[coldday_idx]
 coldday_temperature <- kefj_temperature[coldday_idx]
