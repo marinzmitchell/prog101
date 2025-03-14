@@ -92,15 +92,50 @@ plot_kefj(coldday_datetime, coldday_temperature, coldday_exposure)
 # What patterns do you notice in time, temperature, and exposure? Do those
 # patterns match your intuition, or do they differ?
 
+#For hottest day when temperature was higher, "air" and "air/transition" were
+#the variables in quetsion
+
+#For the coldest day when temperatures were at their lowest points, "air" and
+# "air/temperature" were the varibles in quetions.
+
+# looking at these findings we can notice that at extreme temperatures, "air"
+# and "air/temperature" are the main variables that may be related to the extreme
+# temperatures
+
+#this tells us temperature is much more extreme when the logger is in the air
+#rather than in the water
+
+#These patterns makes sense and match how I was thinking about it
+
+
 # How did Traiger et al. define extreme temperature exposure?
+
+#The author described extreme hot temperature exposure as >25 celcius and
+#described extreme cold tempertaure exposure as <4 celcius
+
+# a thing to note is that air temperature metrics were based on absolute
+# temperatures rather than anomolies because air temperatures are more variable
+# than water temperatures
+
 
 # Translate their written description to code and calculate the extreme heat
 # exposure for the hottest day.
 
+hotday_exposed_idx <- which((hotday_exposure == "air"| hotday_exposure == "air/transiton")& hotday_temperature >= 25)
+hotday_exposed_idx
+hotday_interval <- hotday_datetime[2:length(hotday_datetime)]-hotday_datetime[1:length(hotday_datetime)-1]
+sum(hotday_interval[hotday_exposed_idx])
+
+
 # Compare your answer to the visualization you made. Does it look right to you?
+#yes
 
 # Repeat this process for extreme cold exposure on the coldest day.
 
+coldday_exposed_idx <- which((coldday_exposure == "air"| coldday_exposure == "air/transiton")& coldday_temperature <= 4)
+coldday_exposed_idx
+coldday_interval <- coldday_datetime[2:length(coldday_datetime)]-coldday_datetime[1:length(coldday_datetime)-1]
+sum(coldday_interval[coldday_exposed_idx])
 
 # Putting it together -----------------------------------------------------
 

@@ -21,9 +21,8 @@ LETTERS(1:10)
 LETTERS[c(5,10,15)]
 
 # Convert the last ten letters of the alphabet to lower case.
-last_ten_letters <- LETTERS[17:26]
-last_ten_letters <- tolower(last_ten_letters)
-print(last_ten_letters)
+LETTERS[(length(LETTERS) - 9):length(LETTERS)]
+tolower(LETTERS[(length(LETTERS) - 9):length(LETTERS)])
 
-LETTERS[letters(LETTERS)-9):length(LETTERS)
+
 
